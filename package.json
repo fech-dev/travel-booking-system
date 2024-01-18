@@ -18,5 +18,8 @@
     "prettier": "^3.2.4",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "lowdb": "^7.0.1"
   }
 }

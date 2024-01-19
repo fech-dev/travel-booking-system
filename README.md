@@ -52,8 +52,8 @@ For every other detail not explicitly written in this docs, the candidate can in
 
 - [x] setup nuxt3 project
 - [x] Simple Travel CRUD API
-- [ ] List Bookings API
-- [ ] Create Booking API
+- [x] List Bookings API
+- [x] Create Booking API
 - [ ] Install Tailwindcss
 - [ ] Create UI Components
   - [ ] Button

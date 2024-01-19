@@ -1,13 +1,15 @@
 import { JSONFilePreset } from 'lowdb/node'
 import { join } from 'desm'
-import type { Travel } from '~/schemas'
+import type { Travel, Booking } from '~/schemas'
 
 export interface DbSchema {
-  travels: Travel[]
+  travels: Travel[],
+  bookings: Booking[]
 }
 
 const defaultData: DbSchema = {
-  travels: []
+  travels: [],
+  bookings: []
 }
 
 interface CreateDatabaseConfig {

@@ -1,6 +1,4 @@
-import type { Booking, Travel } from '~/schemas'
-
-type BookingWithTravel = Omit<Booking, 'travel_id'> & {travel: Travel}
+import type { BookingWithTravel } from '~/schemas'
 
 export default defineEventHandler((event) => {
   const { db } = event.context

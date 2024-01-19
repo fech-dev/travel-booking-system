@@ -1,75 +1,68 @@
-# Nuxt 3 Minimal Starter
+# WeRoad Tech Case
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## ASSIGNMENT
 
-## Setup
+We need to build a travels and bookings management system consisting of 2 pages, 
+one to manage travel and the other to manage booking.
 
-Make sure to install the dependencies:
+### Travels
+Travels should have some basic information like: 
+  - name of the travel, 
+  - description
+  - departure date
+  - return date
+  - picture 
+  - price for a single person
+  - average user rating
 
-```bash
-# npm
-npm install
+Travels should be listed in a dedicated page with a table and some basic filters.
 
-# pnpm
-pnpm install
+The user should be able to:
+ - Use a form to add a new travel
+ - Edit an existing travel
+ - Delete a travel
 
-# yarn
-yarn install
+### Bookings
 
-# bun
-bun install
-```
+The bookings should hold those info: 
+  - the related travel 
+  - customer infos (name, email, phone number, age, gender)
+  - payment type (Credit transfer, Paypal, Revolut)
+  - eventual internal notes
 
-## Development Server
+Bookings should be listed in a dedicated page with a table
 
-Start the development server on `http://localhost:3000`:
+A booking can be created with a dedicated multi-step form (wizard):
+  - first step: search and select the related travel
+  - second step: fill the customer info in a dedicated form (name, email, phone number, age, gender)
+  - third step: select the payment type (Credit transfer, Paypal, Revolut) and optionally add some notes
 
-```bash
-# npm
-npm run dev
+NOTES:
+The backend/API part can be mocked (no database, optional validation, just mocked data) and implemented in the way the candidate prefers, for example with nuxt server routes or a dedicated simple server.
 
-# pnpm
-pnpm run dev
+For every other detail not explicitly written in this docs, the candidate can independently design and build the way they prefer.
 
-# yarn
-yarn dev
+## REQUIRED TECH STACK
+- Vue 3 with composition API
+- Nuxt3
+- Typescript
+- Tailwind
 
-# bun
-bun run dev
-```
+## TASKS
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [x] setup nuxt3 project
+- [x] Simple Travel CRUD API
+- [ ] List Bookings API
+- [ ] Create Booking API
+- [ ] Install Tailwindcss
+- [ ] Create UI Components
+  - [ ] Button
+  - [ ] Form Input
+  - [ ] Text Area
+  - [ ] Form Field
+  - [ ] Modal
+- [ ] List Travels Page
+- [ ] Create/Edit Travel Form
+- [ ] Delete Travel Flow
+- [ ] List Bookings Page
+- [ ] Create Booking Form

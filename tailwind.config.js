@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme'
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -6,13 +6,85 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: '1rem'
+      padding: "1rem",
     },
     extend: {
       fontFamily: {
-        sans: ['"Roboto"', ...defaultTheme.fontFamily.sans]
-      }
-    }
+        sans: ['"Roboto"', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        surface: {
+          DEFAULT: "rgb(var(--color-surface-500))",
+          50: "rgb(var(--color-surface-50))",
+          100: "rgb(var(--color-surface-100))",
+          200: "rgb(var(--color-surface-200))",
+          300: "rgb(var(--color-surface-300))",
+          400: "rgb(var(--color-surface-400))",
+          500: "rgb(var(--color-surface-500))",
+          600: "rgb(var(--color-surface-600))",
+          700: "rgb(var(--color-surface-700))",
+          800: "rgb(var(--color-surface-800))",
+          900: "rgb(var(--color-surface-900))",
+          950: "rgb(var(--color-surface-950))",
+        },
+        primary: {
+          DEFAULT: "rgb(var(--color-primary-500))",
+          50: "rgb(var(--color-primary-50))",
+          100: "rgb(var(--color-primary-100))",
+          200: "rgb(var(--color-primary-200))",
+          300: "rgb(var(--color-primary-300))",
+          400: "rgb(var(--color-primary-400))",
+          500: "rgb(var(--color-primary-500))",
+          600: "rgb(var(--color-primary-600))",
+          700: "rgb(var(--color-primary-700))",
+          800: "rgb(var(--color-primary-800))",
+          900: "rgb(var(--color-primary-900))",
+          950: "rgb(var(--color-primary-950))",
+        },
+        success: {
+          DEFAULT: "rgb(var(--color-success-500))",
+          50: "rgb(var(--color-success-50))",
+          100: "rgb(var(--color-success-100))",
+          200: "rgb(var(--color-success-200))",
+          300: "rgb(var(--color-success-300))",
+          400: "rgb(var(--color-success-400))",
+          500: "rgb(var(--color-success-500))",
+          600: "rgb(var(--color-success-600))",
+          700: "rgb(var(--color-success-700))",
+          800: "rgb(var(--color-success-800))",
+          900: "rgb(var(--color-success-900))",
+          950: "rgb(var(--color-success-950))",
+        },
+        warning: {
+          DEFAULT: "rgb(var(--color-warning-500))",
+          50: "rgb(var(--color-warning-50))",
+          100: "rgb(var(--color-warning-100))",
+          200: "rgb(var(--color-warning-200))",
+          300: "rgb(var(--color-warning-300))",
+          400: "rgb(var(--color-warning-400))",
+          500: "rgb(var(--color-warning-500))",
+          600: "rgb(var(--color-warning-600))",
+          700: "rgb(var(--color-warning-700))",
+          800: "rgb(var(--color-warning-800))",
+          900: "rgb(var(--color-warning-900))",
+          950: "rgb(var(--color-warning-950))",
+        },
+        danger: {
+          DEFAULT: "rgb(var(--color-danger-500))",
+          50: "rgb(var(--color-danger-50))",
+          100: "rgb(var(--color-danger-100))",
+          200: "rgb(var(--color-danger-200))",
+          300: "rgb(var(--color-danger-300))",
+          400: "rgb(var(--color-danger-400))",
+          500: "rgb(var(--color-danger-500))",
+          600: "rgb(var(--color-danger-600))",
+          700: "rgb(var(--color-danger-700))",
+          800: "rgb(var(--color-danger-800))",
+          900: "rgb(var(--color-danger-900))",
+          950: "rgb(var(--color-danger-950))",
+        },
+      },
+    },
   },
-  plugins: []
-}
+  plugins: [],
+};

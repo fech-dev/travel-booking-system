@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from "zod";
 
 export const TravelSchema = z.object({
   id: z.string(),
@@ -8,13 +8,13 @@ export const TravelSchema = z.object({
   price: z.string(),
   average_user_rating: z.number(),
   starts_at: z.string(),
-  ends_at: z.string()
-})
+  ends_at: z.string(),
+});
 
-export type Travel = z.infer<typeof TravelSchema>
+export type Travel = z.infer<typeof TravelSchema>;
 
-export const CreateTravelBodySchema = TravelSchema.omit({ id: true })
-export type CreateTravelBody = z.infer<typeof CreateTravelBodySchema>
+export const CreateTravelBodySchema = TravelSchema.omit({ id: true });
+export type CreateTravelBody = z.infer<typeof CreateTravelBodySchema>;
 
-export const EditTravelBodySchema = CreateTravelBodySchema.partial()
-export type EditTravelBody = z.infer<typeof EditTravelBodySchema>
+export const EditTravelBodySchema = CreateTravelBodySchema.partial();
+export type EditTravelBody = z.infer<typeof EditTravelBodySchema>;

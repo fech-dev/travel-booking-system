@@ -1,2 +1,2 @@
-export * from '~/schemas/travel'
-export * from '~/schemas/booking'
+export * from "~/schemas/travel";
+export * from "~/schemas/booking";

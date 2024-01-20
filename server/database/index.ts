@@ -1,26 +1,26 @@
-import { JSONFilePreset } from 'lowdb/node'
-import { join } from 'desm'
-import type { Travel, Booking } from '~/schemas'
+import { JSONFilePreset } from "lowdb/node";
+import { join } from "desm";
+import type { Travel, Booking } from "~/schemas";
 
 export interface DbSchema {
-  travels: Travel[],
-  bookings: Booking[]
+  travels: Travel[];
+  bookings: Booking[];
 }
 
 const defaultData: DbSchema = {
   travels: [],
-  bookings: []
-}
+  bookings: [],
+};
 
 interface CreateDatabaseConfig {
-  databaseName: string
+  databaseName: string;
 }
 export const createDatabase = async function (config: CreateDatabaseConfig) {
-  const { databaseName } = config
+  const { databaseName } = config;
 
-  const dbDir = join(import.meta.url, `${databaseName}.json`)
+  const dbDir = join(import.meta.url, `${databaseName}.json`);
 
-  const db = await JSONFilePreset<DbSchema>(dbDir, defaultData)
+  const db = await JSONFilePreset<DbSchema>(dbDir, defaultData);
 
-  return db
-}
+  return db;
+};

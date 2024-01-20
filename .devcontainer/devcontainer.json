@@ -27,7 +27,8 @@
 				"sdras.vue-vscode-snippets",
 				"ZixuanChen.vitest-explorer",
 				"eamodio.gitlens",
-				"rangav.vscode-thunder-client"
+				"rangav.vscode-thunder-client",
+				"esbenp.prettier-vscode"
 			],
 			"settings": {
 				"eslint.packageManager": "pnpm",

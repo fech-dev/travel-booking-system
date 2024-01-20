@@ -1,7 +1,7 @@
 export default defineEventHandler((event) => {
-  const { db } = event.context
+  const { db } = event.context;
 
-  const data = db.data.travels
+  const data = db.data.travels;
 
-  return { data }
-})
+  return { data };
+});

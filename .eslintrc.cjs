@@ -4,7 +4,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
-  extends: ['@nuxt/eslint-config'],
-}
+  extends: ["@nuxt/eslint-config", "prettier"],
+};

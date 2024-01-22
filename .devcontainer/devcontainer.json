@@ -28,16 +28,26 @@
 				"ZixuanChen.vitest-explorer",
 				"eamodio.gitlens",
 				"rangav.vscode-thunder-client",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"bradlc.vscode-tailwindcss"
 			],
 			"settings": {
 				"eslint.packageManager": "pnpm",
-				"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
 				"editor.codeActionsOnSave": {
 					"source.fixAll": false,
 					"source.fixAll.eslint": true
 				},
-				"vitest.commandLine": "npx vitest"
+				"vitest.commandLine": "npx vitest",
+				"tailwindCSS.classAttributes": [
+					"class",
+					"enter-from-class",
+					"enter-active-class",
+					"enter-to-class",
+					"leave-from-class",
+					"leave-active-class",
+					"leave-to-class"
+				]
 			}
 		}
 	}

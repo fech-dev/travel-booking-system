@@ -12,7 +12,7 @@ const CustomerSchema = z.object({
 export const BookingSchema = z.object({
   id: z.number(),
   customer: CustomerSchema,
-  travel_id: z.string(),
+  travel_id: z.number(),
   payment_type: z.enum(["Credit Transfer", "PayPal", "Revolut"]),
   notes: z.string().optional(),
 });

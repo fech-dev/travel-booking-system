@@ -3,12 +3,14 @@ interface Props {
   label?: string;
   size?: "sm" | "md" | "lg";
   variant?: "neutral" | "primary" | "success" | "warning" | "danger";
+  icon?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   label: "",
   size: "md",
   variant: "primary",
+  icon: "",
 });
 
 const sizes = {
@@ -46,8 +48,8 @@ const variants = {
 };
 
 const classes = computed(() => [
-  "inline-flex justify-center items-center",
-  "leading-1 text-center font-bold uppercase",
+  "inline-flex justify-center items-center gap-2",
+  "leading-1 text-center font-semibold uppercase",
   "select-none cursor-pointer border",
   "transition-color duration-200 ease",
   "hover:shadow hover:-translate-y-[1px]",
@@ -60,6 +62,7 @@ const classes = computed(() => [
 
 <template>
   <button :class="classes">
+    <Icon v-if="icon" :name="icon" />
     {{ label }}
   </button>
 </template>

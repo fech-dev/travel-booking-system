@@ -48,8 +48,8 @@ const setModelValue = (event: Event) => {
     />
 
     <div
-      class="w-6 aspect-square border rounded-sm p-1"
-      :class="[model && 'border-primary', !model && 'border-surface-200']"
+      class="w-6 aspect-square border-2 rounded-sm shadow p-1 bg-surface-50 hover:border-primary-400 transition-colors duration-150 ease-in-out"
+      :class="[model && 'border-primary', !model && 'border-primary-200']"
     >
       <Transition
         enter-from-class="scale-0"

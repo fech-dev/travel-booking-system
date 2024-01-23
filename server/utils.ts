@@ -18,3 +18,8 @@ export const validate = <T extends z.ZodTypeAny>(
 
   return validation.data;
 };
+
+export const getNextId = <T extends { id: number }>(data: T[]) => {
+  const lastIndex = data.length - 1;
+  return data[lastIndex].id + 1;
+};

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const TravelSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   name: z.string(),
   description: z.string(),
   picture: z.string(),

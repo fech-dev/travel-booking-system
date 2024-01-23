@@ -1,5 +1,4 @@
-import { faker } from "@faker-js/faker";
-import { validate } from "~/server/utils";
+import { getNextId, validate } from "~/server/utils";
 import { CreateBookingBodySchema } from "~/schemas";
 import type { CreateBookingBody } from "~/schemas";
 
@@ -10,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const validated = validate(CreateBookingBodySchema, body);
 
   const data = {
-    id: faker.string.uuid(),
+    id: getNextId(db.data.bookings),
     ...validated,
   };
 

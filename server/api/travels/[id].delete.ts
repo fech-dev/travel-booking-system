@@ -2,7 +2,9 @@ export default defineEventHandler(async (event) => {
   const { db } = event.context;
   const id = getRouterParam(event, "id");
 
-  const travelIndex = db.data.travels.findIndex((travel) => travel.id === id);
+  const travelIndex = db.data.travels.findIndex(
+    (travel) => travel.id === Number(id)
+  );
 
   if (travelIndex === -1) {
     return createError({

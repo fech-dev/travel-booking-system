@@ -9,7 +9,9 @@ export default defineEventHandler(async (event) => {
 
   const validated = validate(EditTravelBodySchema, body);
 
-  const travelIndex = db.data.travels.findIndex((travel) => travel.id === id);
+  const travelIndex = db.data.travels.findIndex(
+    (travel) => travel.id === Number(id)
+  );
 
   if (travelIndex === -1) {
     return createError({

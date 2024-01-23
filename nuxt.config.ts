@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ["@nuxt/test-utils/module", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/test-utils/module", "@nuxtjs/tailwindcss", "nuxt-icon"],
 
   app: {
     head: {

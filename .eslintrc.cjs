@@ -7,4 +7,8 @@ module.exports = {
     node: true,
   },
   extends: ["@nuxt/eslint-config", "prettier"],
+
+  rules: {
+    "vue/multi-word-component-names": "warn",
+  },
 };

@@ -54,13 +54,15 @@ For every other detail not explicitly written in this docs, the candidate can in
 - [x] Simple Travel CRUD API
 - [x] List Bookings API
 - [x] Create Booking API
-- [ ] Install Tailwindcss
+- [x] Install Tailwindcss
 - [ ] Create UI Components
-  - [ ] Button
-  - [ ] Form Input
+  - [x] Button
+  - [x] Form Field
+  - [x] Form Input
+  - [x] Checkbox Input
   - [ ] Text Area
-  - [ ] Form Field
   - [ ] Modal
+  - [] DataTable
 - [ ] List Travels Page
 - [ ] Create/Edit Travel Form
 - [ ] Delete Travel Flow

@@ -30,6 +30,10 @@ const selected = defineModel<TRow[] | undefined>("selected", {
   default: [],
 });
 
+const clearSelected = () => {
+  selected.value = [];
+};
+
 const isSelected = (row: TRow): boolean => {
   if (!selected.value?.length) return false;
 
@@ -68,6 +72,8 @@ const toggleSelectedRow = (row: TRow) => {
 
   selectionHandlers[props.selectionMode]?.call(undefined, row, !selected);
 };
+
+defineExpose({ clearSelected });
 </script>
 
 <template>

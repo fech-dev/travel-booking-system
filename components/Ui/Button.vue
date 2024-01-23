@@ -2,7 +2,13 @@
 interface Props {
   label?: string;
   size?: "sm" | "md" | "lg";
-  variant?: "neutral" | "primary" | "success" | "warning" | "danger";
+  variant?:
+    | "neutral"
+    | "primary"
+    | "success"
+    | "warning"
+    | "danger"
+    | "transparent";
   icon?: string;
 }
 
@@ -45,6 +51,11 @@ const variants = {
     "hover:bg-danger-600 hover:shadow-danger-600",
     "focus:border-danger-600",
   ],
+  transparent: [
+    "bg-transparent border-transparent",
+    "hover:bg-surface-500/20 hover:shadow-surface-500/50",
+    "focus:shadow-primary-200/75",
+  ],
 };
 
 const classes = computed(() => [
@@ -62,7 +73,9 @@ const classes = computed(() => [
 
 <template>
   <button :class="classes">
-    <Icon v-if="icon" :name="icon" />
-    {{ label }}
+    <slot>
+      <Icon v-if="icon" :name="icon" />
+      {{ label }}
+    </slot>
   </button>
 </template>

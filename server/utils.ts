@@ -21,5 +21,5 @@ export const validate = <T extends z.ZodTypeAny>(
 
 export const getNextId = <T extends { id: number }>(data: T[]) => {
   const lastIndex = data.length - 1;
-  return data[lastIndex].id + 1;
+  return lastIndex === -1 ? 1 : data[lastIndex].id + 1;
 };

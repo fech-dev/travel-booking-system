@@ -16,5 +16,5 @@ export default defineEventHandler(async (event) => {
   await db.update(({ bookings }) => bookings.push(data));
 
   setResponseStatus(event, 201);
-  return { data };
+  return data;
 });

@@ -16,5 +16,5 @@ export default defineEventHandler(async (event) => {
   await db.update(({ travels }) => travels.splice(travelIndex, 1));
 
   setResponseStatus(event, 204);
-  return {};
+  return;
 });

@@ -13,5 +13,5 @@ export default defineEventHandler((event) => {
     return updatedBooking as BookingWithTravel;
   });
 
-  return { data };
+  return data;
 });

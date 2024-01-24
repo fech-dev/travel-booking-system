@@ -4,11 +4,13 @@ import type { AppConfig } from "nuxt/schema";
 interface Props {
   size?: keyof AppConfig["ui"]["input"]["sizes"];
   variant?: keyof AppConfig["ui"]["input"]["variants"];
+  type: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   size: "md",
   variant: "neutral",
+  type: "text",
 });
 
 const model = defineModel<any>();
@@ -27,5 +29,11 @@ const id = inject<string>("id", attrs.id as string);
 </script>
 
 <template>
-  <input :id="id" v-model="model" :class="classes" />
+  <textarea
+    v-if="props.type === 'textarea'"
+    :id="id"
+    v-model="model"
+    :class="classes"
+  />
+  <input v-else :id="id" v-model="model" :type="type" :class="classes" />
 </template>

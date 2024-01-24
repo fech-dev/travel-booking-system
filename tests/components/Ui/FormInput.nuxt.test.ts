@@ -3,6 +3,20 @@ import { mount } from "@vue/test-utils";
 import UiFormInput from "~/components/Ui/FormInput.vue";
 
 describe("<UiFormInput />", () => {
+  it("should render a input element", () => {
+    const wrapper = mount(UiFormInput);
+
+    expect(wrapper.find("input").exists()).toBe(true);
+  });
+
+  it("should render a textarea element", () => {
+    const wrapper = mount(UiFormInput, {
+      props: { type: "textarea" },
+    });
+
+    expect(wrapper.find("textarea").exists()).toBe(true);
+  });
+
   it("has v-model", async () => {
     const wrapper = mount(UiFormInput, {
       props: {

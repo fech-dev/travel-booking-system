@@ -32,6 +32,10 @@ export default defineNuxtConfig({
     databaseName: "",
   },
 
+  routeRules: {
+    "/": { redirect: "/travels" },
+  },
+
   veeValidate: {
     typedSchemaPackage: "zod",
   },

@@ -4,7 +4,7 @@ import type { AppConfig } from "nuxt/schema";
 interface Props {
   size?: keyof AppConfig["ui"]["input"]["sizes"];
   variant?: keyof AppConfig["ui"]["input"]["variants"];
-  type: string;
+  type?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {

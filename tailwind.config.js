@@ -2,7 +2,7 @@ import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ["ui.config.ts"],
   theme: {
     container: {
       center: true,

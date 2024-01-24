@@ -1,7 +1,9 @@
 <script lang="ts" setup>
+import type { AppConfig } from "nuxt/schema";
+
 interface Props {
-  size?: "sm" | "md" | "lg";
-  variant?: "neutral" | "success" | "warning" | "danger";
+  size?: keyof AppConfig["ui"]["input"]["sizes"];
+  variant?: keyof AppConfig["ui"]["input"]["variants"];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -9,43 +11,14 @@ const props = withDefaults(defineProps<Props>(), {
   variant: "neutral",
 });
 
-const model = defineModel<string>();
+const model = defineModel<any>();
 
-const sizes = {
-  sm: "py-1 px-2 text-sm rounded-sm",
-  md: "py-2 px-4 rounded",
-  lg: "py-3 px-6 text-lg rounded-lg shadow",
-};
-
-const variants = {
-  neutral: [
-    "border-surface-200",
-    "hover:shadow-primary hover:border-primary",
-    "focus:shadow-primary focus:border-primary-600",
-  ],
-  success: [
-    "border-success",
-    "hover:shadow-success-600/50",
-    "focus:shadow-success-600/75",
-  ],
-  warning: [
-    "border-warning",
-    "hover:shadow-warning-600/50",
-    "focus:shadow-warning-600/75",
-  ],
-  danger: [
-    "border-danger",
-    "hover:shadow-danger-600/50",
-    "focus:shadow-danger-600/75",
-  ],
-};
+const { ui } = useAppConfig();
 
 const classes = computed(() => [
-  "leading-1 border shadow bg-slate-100",
-  "transition duration-200 ease-out",
-  "focus:outline-none",
-  sizes[props.size],
-  variants[props.variant],
+  ui.input.base,
+  ui.input.sizes[props.size],
+  ui.input.variants[props.variant],
 ]);
 
 const attrs = useAttrs();

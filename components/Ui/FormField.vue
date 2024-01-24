@@ -13,19 +13,19 @@ withDefaults(defineProps<Props>(), {
 
 const attrs = useAttrs() as { id?: string };
 
+const { ui } = useAppConfig();
+
 provide<string | undefined>("id", attrs.id);
 </script>
 
 <template>
   <div class="flex flex-col">
-    <label :for="attrs.id" class="uppercase mb-1">{{ label }}</label>
-
+    <label :for="attrs.id" :class="ui.formField.label">
+      {{ label }}
+    </label>
     <slot />
 
-    <div
-      v-show="hasError && errorMessage"
-      class="mt-2 text-sm py-1 px-2 rounded-md text-danger-600 bg-danger-100"
-    >
+    <div v-show="hasError && errorMessage" :class="ui.formField.errorMessage">
       {{ errorMessage }}
     </div>
   </div>

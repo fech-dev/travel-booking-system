@@ -3,7 +3,8 @@ import { get } from "lodash-es";
 
 export type DataTableColumn<T extends Record<string, any>> = {
   prop: keyof T;
-  label: string;
+  label?: string;
+  cellClass?: string | string[] | object | object[];
   value?: (value: any) => any;
 };
 
@@ -25,6 +26,8 @@ const props = withDefaults(defineProps<Props>(), {
   dataKey: "id",
   stripped: false,
 });
+
+const isEmpty = computed(() => !props.data || props.data.length === 0);
 
 const selected = defineModel<TRow[] | undefined>("selected", {
   default: [],
@@ -64,7 +67,7 @@ const selectionHandlers = {
 
 /**
  * Check if a given row is selected.
- * If the row is selected, will be removed from the selected list, otherwise will be addedd.
+ * If the row is selected, will be removed from the selected list, otherwise will be added.
  */
 const toggleSelectedRow = (row: TRow) => {
   if (!props.selectable) return;
@@ -77,8 +80,27 @@ defineExpose({ clearSelected });
 </script>
 
 <template>
-  <div class="overflow-auto bg-primary-100 text-primary-900 rounded">
-    <table class="w-full relative">
+  <div class="overflow-auto bg-primary-100 text-primary-900 rounded relative">
+    <Transition
+      enter-from-class="opacity-0 scale-0"
+      enter-active-class="transition duration-300 ease-in-out"
+      leave-active-class="transition duration-300 ease-in-out"
+      leave-to-class="opacity-0 scale-0"
+    >
+      <div
+        v-if="isEmpty || loading"
+        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-surface-50 text-2xl z-30"
+        :class="[
+          isEmpty && 'bg-primary-900/40',
+          loading && 'bg-primary-900/70',
+        ]"
+      >
+        <div v-show="isEmpty && !loading">No data found...</div>
+        <div v-show="loading">Loading data...</div>
+      </div>
+    </Transition>
+
+    <table class="w-full">
       <thead class="sticky top-0 bg-primary-100">
         <tr>
           <td v-if="selectable" class="px-5 py-4">&nbsp;</td>
@@ -111,7 +133,7 @@ defineExpose({ clearSelected });
           </td>
 
           <template v-for="column of columns" :key="column.prop">
-            <td class="px-5 py-4 text-left">
+            <td class="px-5 py-4 text-left" :class="column.cellClass">
               <slot
                 :name="`${String(column.prop)}-cell`"
                 v-bind="{ column, row }"

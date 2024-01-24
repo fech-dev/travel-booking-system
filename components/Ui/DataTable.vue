@@ -112,11 +112,16 @@ defineExpose({ clearSelected });
 
           <template v-for="column of columns" :key="column.prop">
             <td class="px-5 py-4 text-left">
-              {{
-                !column.value
-                  ? get(row, column.prop)
-                  : column.value(get(row, column.prop))
-              }}
+              <slot
+                :name="`${String(column.prop)}-cell`"
+                v-bind="{ column, row }"
+              >
+                {{
+                  !column.value
+                    ? get(row, column.prop)
+                    : column.value(get(row, column.prop))
+                }}
+              </slot>
             </td>
           </template>
         </tr>

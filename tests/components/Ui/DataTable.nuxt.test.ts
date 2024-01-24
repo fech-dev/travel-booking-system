@@ -166,3 +166,30 @@ describe("Row Selection: multiple mode", () => {
     expect(eventParams[0]).toEqual([data[0], data[2]]);
   });
 });
+
+describe("Slots", () => {
+  test("should have a slot for each column (<column>-cell)", () => {
+    const slots = columns.reduce((slots: Record<string, string>, column) => {
+      const slotName = `${column.prop}-cell`;
+      slots[slotName] = `<template #${slotName}="{ row, column }">
+        {{ column.prop }} => {{ row[column.prop] }}
+        </template>`;
+
+      return slots;
+    }, {});
+
+    const wrapper = mount(UiDataTable, {
+      props: { columns, data },
+      slots,
+    });
+
+    data.forEach((row, i) => {
+      const $row = wrapper.find(`table tbody tr:nth-child(${i + 1})`);
+      columns.forEach((column, j) => {
+        expect($row.find(`td:nth-child(${j + 1})`).text()).toBe(
+          `${column.prop} => ${row[column.prop]}`
+        );
+      });
+    });
+  });
+});

@@ -47,7 +47,10 @@
 					"leave-from-class",
 					"leave-active-class",
 					"leave-to-class"
-				]
+				],
+				"[vue]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				}
 			}
 		}
 	}

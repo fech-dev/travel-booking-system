@@ -1,8 +1,9 @@
 <script lang="ts" setup generic="TRow extends Record<string, any> = {}">
+import type { DeepKeyOf } from "~/utils/types";
 import { get } from "lodash-es";
 
 export type DataTableColumn<T extends Record<string, any>> = {
-  prop: keyof T;
+  prop: DeepKeyOf<T>;
   label?: string;
   cellClass?: string | string[] | object | object[];
   value?: (value: any) => any;

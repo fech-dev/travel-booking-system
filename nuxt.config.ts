@@ -1,7 +1,13 @@
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: true },
 
-  modules: ["@nuxt/test-utils/module", "@nuxtjs/tailwindcss", "nuxt-icon"],
+  modules: [
+    "@nuxt/test-utils/module",
+    "@nuxtjs/tailwindcss",
+    "nuxt-icon",
+    "@vee-validate/nuxt",
+  ],
 
   app: {
     head: {
@@ -24,5 +30,9 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     databaseName: "",
+  },
+
+  veeValidate: {
+    typedSchemaPackage: "zod",
   },
 });

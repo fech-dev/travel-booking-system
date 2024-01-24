@@ -7,7 +7,7 @@
     "lint": " eslint --ext .vue,.ts,.js --ignore-path .gitignore --fix .",
     "dev": "nuxt dev",
     "test:dev": "vitest --ui",
-    "test:components:dev": "vitest tests/components/**/*.test.ts --ui --environment happy-dom",
+    "test:components:dev": "vitest tests/components/*.test.ts --ui --environment happy-dom",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

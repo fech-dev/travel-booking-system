@@ -47,7 +47,7 @@ defineExpose({
       <UiBackdrop
         v-if="visible"
         data-testid="modal-backdrop"
-        class="flex justify-center items-center"
+        class="flex justify-center items-center overflow-y-auto"
         @click.self="hide"
       >
         <div
@@ -61,7 +61,10 @@ defineExpose({
             data-testid="modal-header"
           >
             <slot v-if="title || $slots.header" name="header">
-              <h2 class="text-2xl text-primary-900" data-testid="modal-title">
+              <h2
+                class="text-2xl text-primary-800 font-semibold uppercase"
+                data-testid="modal-title"
+              >
                 {{ title }}
               </h2>
             </slot>

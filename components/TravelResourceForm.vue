@@ -93,7 +93,7 @@ const onSubmit = handleSubmit(
 
     <UiFormField
       name="price"
-      label="Price for single pearson"
+      label="Price for single person"
       :error-message="errors.price"
     >
       <UiFormInput v-model="price" v-bind="priceProps" />

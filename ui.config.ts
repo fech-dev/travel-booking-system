@@ -1,7 +1,7 @@
 // GLOBALS
 const sizes = {
   sm: "py-1 px-2 rounded text-sm",
-  md: "py-2 px-4 rounded",
+  md: "py-2 px-4 rounded h-10",
   lg: "py-4 px-6 rounded text-lg",
 };
 

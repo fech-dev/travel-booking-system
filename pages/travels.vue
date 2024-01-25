@@ -74,15 +74,17 @@ const onDeleteTravel = async (travel: Travel) => {
 </script>
 
 <template>
-  <div>
-    <div class="container">
-      <TravelsTable
-        ref="travelsTable"
-        @create="onCreateTravel"
-        @update="([travel]) => onUpdateTravel(travel)"
-        @delete="([travel]) => onDeleteTravel(travel)"
-      />
-    </div>
+  <div class="container">
+    <h1 class="text-4xl font-semibold uppercase text-primary-800 mb-6">
+      Travels
+    </h1>
+
+    <TravelsTable
+      ref="travelsTable"
+      @create="onCreateTravel"
+      @update="([travel]) => onUpdateTravel(travel)"
+      @delete="([travel]) => onDeleteTravel(travel)"
+    />
 
     <UiModal ref="travelResourceModal" class="max-w-2xl" title="Add new travel">
       <TravelResourceForm

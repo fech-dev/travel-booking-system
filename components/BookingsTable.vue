@@ -30,10 +30,7 @@ const columns: DataTableColumn<BookingWithTravel>[] = [
   { prop: "notes", label: "Notes" },
 ];
 
-defineExpose({
-  refresh,
-  clearSelected: () => table.value?.clearSelected(),
-});
+defineExpose({ refresh });
 </script>
 
 <template>

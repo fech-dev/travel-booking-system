@@ -94,105 +94,100 @@ const onSubmit = () => emit("submit", form.values as CreateBookingBody);
     :form="form"
     @submit="onSubmit"
   >
-    <template #default="{}">
-      <UiFormStep
-        title="Where do we go?"
-        class="flex items-center justify-center h-[40vh]"
+    <UiFormStep title="Where do we go?" class="flex justify-center h-[40vh]">
+      <UiFormField
+        class="w-3/4 pt-5"
+        name="travel_id"
+        :error-message="errors['travel_id']"
       >
+        <TravelSelect
+          v-model="selectedTravel"
+          v-bind="travelIdProps"
+          :loading="loadingTravels"
+          :travels="travels"
+        />
+      </UiFormField>
+    </UiFormStep>
+
+    <UiFormStep
+      title="Customer Data"
+      class="flex flex-col justify-center gap-5 h-[40vh]"
+    >
+      <UiFormField
+        label="Customer Name"
+        name="customer.name"
+        :error-message="errors['customer.name']"
+      >
+        <UiFormInput v-model="customerName" v-bind="customerNameProps" />
+      </UiFormField>
+
+      <div class="flex gap-5">
         <UiFormField
-          class="w-3/4"
-          name="travel_id"
-          :error-message="errors['travel_id']"
+          class="flex-1"
+          label="Customer Phone"
+          name="customer.phone"
+          :error-message="errors['customer.phone']"
         >
-          <TravelSelect
-            v-model="selectedTravel"
-            v-bind="travelIdProps"
-            :loading="loadingTravels"
-            :travels="travels"
-          />
+          <UiFormInput v-model="customerPhone" v-bind="customerPhoneProps" />
         </UiFormField>
-      </UiFormStep>
 
-      <UiFormStep
-        title="Customer Data"
-        class="flex flex-col justify-center gap-5 h-[40vh]"
-      >
         <UiFormField
-          label="Customer Name"
-          name="customer.name"
-          :error-message="errors['customer.name']"
+          class="flex-1"
+          label="Customer Email"
+          name="customer.email"
+          :error-message="errors['customer.email']"
         >
-          <UiFormInput v-model="customerName" v-bind="customerNameProps" />
+          <UiFormInput v-model="customerEmail" v-bind="customerEmailProps" />
         </UiFormField>
+      </div>
 
-        <div class="flex gap-5">
-          <UiFormField
-            class="flex-1"
-            label="Customer Phone"
-            name="customer.phone"
-            :error-message="errors['customer.phone']"
-          >
-            <UiFormInput v-model="customerPhone" v-bind="customerPhoneProps" />
-          </UiFormField>
-
-          <UiFormField
-            class="flex-1"
-            label="Customer Email"
-            name="customer.email"
-            :error-message="errors['customer.email']"
-          >
-            <UiFormInput v-model="customerEmail" v-bind="customerEmailProps" />
-          </UiFormField>
-        </div>
-
-        <div class="flex gap-5">
-          <UiFormField
-            class="flex-1"
-            label="Customer Gender"
-            name="customer.gender"
-            :error-message="errors['customer.gender']"
-          >
-            <UiFormSelect
-              v-model="customerGender"
-              :options="genderOptions"
-              v-bind="customerGenderProps"
-            />
-          </UiFormField>
-
-          <UiFormField
-            class="flex-1"
-            label="Customer Age"
-            name="customer.age"
-            :error-message="errors['customer.age']"
-          >
-            <UiFormInput v-model="customerAge" v-bind="customerAgeProps" />
-          </UiFormField>
-        </div>
-      </UiFormStep>
-
-      <UiFormStep
-        title="Payment Type"
-        class="flex flex-col justify-center gap-5 h-[40vh]"
-      >
+      <div class="flex gap-5">
         <UiFormField
-          label="Payment Type"
-          name="payment_type"
-          :error-message="errors['payment_type']"
+          class="flex-1"
+          label="Customer Gender"
+          name="customer.gender"
+          :error-message="errors['customer.gender']"
         >
           <UiFormSelect
-            v-model="paymentType"
-            :options="paymentOptions"
-            v-bind="paymentTypeProps"
+            v-model="customerGender"
+            :options="genderOptions"
+            v-bind="customerGenderProps"
           />
         </UiFormField>
+
         <UiFormField
-          label="Notes (optional)"
-          name="notes"
-          :error-message="errors['notes']"
+          class="flex-1"
+          label="Customer Age"
+          name="customer.age"
+          :error-message="errors['customer.age']"
         >
-          <UiFormInput v-model="notes" type="textarea" v-bind="notesProps" />
+          <UiFormInput v-model="customerAge" v-bind="customerAgeProps" />
         </UiFormField>
-      </UiFormStep>
-    </template>
+      </div>
+    </UiFormStep>
+
+    <UiFormStep
+      title="Payment Type"
+      class="flex flex-col justify-center gap-5 h-[40vh]"
+    >
+      <UiFormField
+        label="Payment Type"
+        name="payment_type"
+        :error-message="errors['payment_type']"
+      >
+        <UiFormSelect
+          v-model="paymentType"
+          :options="paymentOptions"
+          v-bind="paymentTypeProps"
+        />
+      </UiFormField>
+      <UiFormField
+        label="Notes (optional)"
+        name="notes"
+        :error-message="errors['notes']"
+      >
+        <UiFormInput v-model="notes" type="textarea" v-bind="notesProps" />
+      </UiFormField>
+    </UiFormStep>
   </UiFormSteps>
 </template>

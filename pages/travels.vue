@@ -69,7 +69,7 @@ const deleteTravel = async (travel: Travel) => {
 const onDeleteTravel = async (travel: Travel) => {
   const shouldDelete = confirm(`Do you want to delete ${travel.name} ?`);
 
-  if (shouldDelete) deleteTravel;
+  if (shouldDelete) deleteTravel(travel);
 };
 </script>
 

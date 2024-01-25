@@ -3,7 +3,7 @@
     <div class="container">
       <ul class="flex justify-center">
         <NavbarItem label="Travels" to="/travels" />
-        <!-- <NavbarItem label="Bookings" to="/bookings" /> -->
+        <NavbarItem label="Bookings" to="/bookings" />
       </ul>
     </div>
   </nav>

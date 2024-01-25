@@ -56,7 +56,7 @@ provide("selected", selected);
     >
       <ul
         v-show="optionsVisible"
-        class="absolute mt-2 rounded shadow overflow-y-auto w-full max-h-64"
+        class="absolute mt-2 rounded shadow overflow-y-auto w-full max-h-96"
       >
         <li
           v-for="travel of filteredTravels"

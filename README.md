@@ -61,17 +61,20 @@ For every other detail not explicitly written in this docs, the candidate can in
 - [x] List Bookings API
 - [x] Create Booking API
 - [x] Install Tailwindcss
-- [ ] Create UI Components
+- [x] Create UI Components
   - [x] Button
   - [x] Form Field
   - [x] Form Input
+  - [x] Form Select
   - [x] Checkbox Input
   - [x] Text Area
   - [x] Modal
   - [x] DataTable
+  - [x] FormSteps
+  - [x] ProgressBar
 - [x] List Travels Page
 - [x] Create/Edit Travel Form
 - [x] Delete Travel Flow
-- [ ] TravelSelect
-- [ ] List Bookings Page
-- [ ] Create Booking Form
+- [x] TravelSelect
+- [x] List Bookings Page
+- [x] Create Booking Form

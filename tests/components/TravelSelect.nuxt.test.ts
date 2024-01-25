@@ -45,7 +45,13 @@ describe("<TravelSelect />", () => {
     expect(wrapper.findAll("ul li")).toHaveLength(2);
   });
 
-  test("when a travel is selected, should emit the 'update:modelValue' event with the selected travel", () => {});
+  test.todo(
+    "when a travel is selected, should emit the 'update:modelValue' event with the selected travel",
+    () => {}
+  );
 
-  test("when a travel is selected, the search input should have the selected travel's full name", async () => {});
+  test.todo(
+    "when a travel is selected, the search input should have the selected travel's full name",
+    async () => {}
+  );
 });

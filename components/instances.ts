@@ -9,3 +9,7 @@ export type DataTableInstance = InstanceType<
 export type TravelsTableInstance = InstanceType<
   (typeof import("~/components/TravelsTable.vue"))["default"]
 >;
+
+export type BookingsTableInstance = InstanceType<
+  (typeof import("~/components/BookinsTable.vue"))["default"]
+>;

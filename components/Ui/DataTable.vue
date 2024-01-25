@@ -107,7 +107,9 @@ defineExpose({ clearSelected });
           <td v-if="selectable" class="px-5 py-4">&nbsp;</td>
 
           <template v-for="column of columns" :key="column.prop">
-            <th class="px-5 py-4 text-left">{{ column.label }}</th>
+            <th class="px-5 py-4 text-left whitespace-nowrap">
+              {{ column.label }}
+            </th>
           </template>
         </tr>
       </thead>

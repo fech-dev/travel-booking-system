@@ -47,7 +47,7 @@ const isSelected = computed(() => selected.value?.id === props.travel.id);
         <span class="font-semibold text-lg text-primary">
           {{ travel.price }}
         </span>
-        €/per pearson
+        €/per person
       </div>
 
       <!-- rating -->

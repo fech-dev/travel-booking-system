@@ -2,10 +2,10 @@ import { z } from "zod";
 import type { Travel } from "~/schemas";
 
 const CustomerSchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  phone: z.string(),
-  age: z.number(),
+  name: z.string().min(2),
+  email: z.string().email().min(1),
+  phone: z.string().length(10),
+  age: z.number({ coerce: true }).max(100),
   gender: z.enum(["male", "female", "other"]),
 });
 
@@ -14,7 +14,7 @@ export const BookingSchema = z.object({
   customer: CustomerSchema,
   travel_id: z.number(),
   payment_type: z.enum(["Credit Transfer", "PayPal", "Revolut"]),
-  notes: z.string().optional(),
+  notes: z.string().max(100).optional(),
 });
 
 export type Booking = z.infer<typeof BookingSchema>;

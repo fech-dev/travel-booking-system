@@ -20,9 +20,9 @@ const {
   refresh,
 } = useAsyncData(() => travelApi.list(), { default: () => [] });
 
-const filters = ref({ name: "" });
+const filters = ref({ name: "", rating: undefined });
 
-const { filteredData } = useTravelFilters(travels, filters);
+const { filteredData, options } = useTravelFilters(travels, filters);
 
 const selectedTravels = ref<Travel[]>([]);
 
@@ -53,6 +53,14 @@ defineExpose({
         <UiFormField>
           <UiFormInput v-model="filters.name" placeholder="Search Travel" />
         </UiFormField>
+
+        <UiFormField>
+          <UiFormSelect
+            v-model="filters.rating"
+            :options="options.rating"
+            placeholder="Filter by rating"
+          />
+        </UiFormField>
       </div>
 
       <!-- actions -->
@@ -77,23 +85,25 @@ defineExpose({
       </div>
     </div>
 
-    <UiDataTable
-      ref="table"
-      v-model:selected="selectedTravels"
-      class="h-[80vh] mt-3 shadow-lg"
-      stripped
-      selectable
-      :loading="loadingTravels"
-      :columns="columns"
-      :data="filteredData"
-    >
-      <template #picture-cell="{ row }">
-        <img
-          :src="row.picture"
-          :alt="row.name"
-          class="object-contain object-center"
-        />
-      </template>
-    </UiDataTable>
+    <ClientOnly>
+      <UiDataTable
+        ref="table"
+        v-model:selected="selectedTravels"
+        class="h-[80vh] mt-3 shadow-lg"
+        stripped
+        selectable
+        :loading="loadingTravels"
+        :columns="columns"
+        :data="filteredData"
+      >
+        <template #picture-cell="{ row }">
+          <img
+            :src="row.picture"
+            :alt="row.name"
+            class="object-contain object-center"
+          />
+        </template>
+      </UiDataTable>
+    </ClientOnly>
   </div>
 </template>

@@ -78,3 +78,25 @@ For every other detail not explicitly written in this docs, the candidate can in
 - [x] TravelSelect
 - [x] List Bookings Page
 - [x] Create Booking Form
+
+## DEVELOPMENT
+
+### Install dependencies
+
+```
+  pnpm install
+```
+
+### Run dev server
+
+```
+  pnpm dev
+```
+
+### Seed Database
+
+```
+  pnpm db:seed
+```
+
+⚠️ The Database file is in `.nuxt/dev/dev.json`

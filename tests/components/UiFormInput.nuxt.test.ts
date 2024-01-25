@@ -30,12 +30,12 @@ describe("<UiFormInput />", () => {
     expect(wrapper.props("modelValue")).toBe("testing");
   });
 
-  it("should set the id from parent component", () => {
+  it("should set the name from parent component", () => {
     const wrapper = mount(UiFormInput, {
-      global: { provide: { id: "test" } },
+      global: { provide: { name: "test" } },
     });
 
-    expect(wrapper.attributes().id).toBe("test");
+    expect(wrapper.attributes().name).toBe("test");
   });
 
   it("should set id from attrs if id is not provided", () => {

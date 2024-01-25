@@ -12,22 +12,22 @@ describe("<UiFormField />", () => {
     expect(inputEl.attributes().name).toBe("test");
   });
 
-  it("should provide id attribute on default slot", () => {
+  it("should provide name attribute on default slot", () => {
     const ChildComponent = defineComponent({
       setup() {
-        const id = inject<string>("id");
-        return { id };
+        const name = inject<string>("name");
+        return { name };
       },
-      template: `<input :id="id" />`,
+      template: `<input :name="name" />`,
     });
 
     const wrapper = mount(UiFormField, {
-      attrs: { id: "test" },
+      attrs: { name: "test" },
       slots: { default: h(ChildComponent) },
     });
 
     const inputEl = wrapper.find("input");
-    expect(inputEl.attributes().id).toBe("test");
+    expect(inputEl.attributes().name).toBe("test");
   });
 
   it("should have a label", () => {

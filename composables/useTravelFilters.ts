@@ -6,7 +6,9 @@ interface TravelFilters {
 }
 
 function filterByName(data: Travel[], value: string) {
-  return data.filter(({ name }) => name.includes(value));
+  return data.filter(({ name }) =>
+    name.toLowerCase().includes(value.toLowerCase())
+  );
 }
 
 function filterByRating(data: Travel[], value: number) {

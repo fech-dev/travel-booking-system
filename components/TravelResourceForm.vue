@@ -31,52 +31,28 @@ const { defineField, errors, handleSubmit } = useForm({
   initialValues: props.travel,
 });
 
-const getVariantByState = (state: any): "success" | "danger" | undefined => {
-  if (state.touched && state.valid) return "success";
-  if (state.touched && !state.valid) return "danger";
-  return undefined;
-};
-
 const [name, nameProps] = defineField("name", {
-  props: (state) => ({
-    name: state.path,
-    variant: getVariantByState(state),
-  }),
+  props: (state) => ({ variant: getVariantByState(state) }),
 });
 
 const [description, descriptionProps] = defineField("description", {
-  props: (state) => ({
-    name: state.path,
-    variant: getVariantByState(state),
-  }),
+  props: (state) => ({ variant: getVariantByState(state) }),
 });
 
 const [picture, pictureProps] = defineField("picture", {
-  props: (state) => ({
-    name: state.path,
-    variant: getVariantByState(state),
-  }),
+  props: (state) => ({ variant: getVariantByState(state) }),
 });
 
 const [price, priceProps] = defineField("price", {
-  props: (state) => ({
-    name: state.path,
-    variant: getVariantByState(state),
-  }),
+  props: (state) => ({ variant: getVariantByState(state) }),
 });
 
 const [startsAt, startsAtProps] = defineField("departure_date", {
-  props: (state) => ({
-    name: state.path,
-    variant: getVariantByState(state),
-  }),
+  props: (state) => ({ variant: getVariantByState(state) }),
 });
 
 const [endsAt, endsAtProps] = defineField("return_date", {
-  props: (state) => ({
-    name: state.path,
-    variant: getVariantByState(state),
-  }),
+  props: (state) => ({ variant: getVariantByState(state) }),
 });
 
 const onSubmit = handleSubmit(
@@ -91,19 +67,13 @@ const onSubmit = handleSubmit(
 
 <template>
   <form class="flex flex-col gap-5" @submit.prevent="onSubmit">
-    <UiFormField
-      id="name"
-      label="Name"
-      :has-error="!!errors.name"
-      :error-message="errors.name"
-    >
+    <UiFormField label="Name" name="name" :error-message="errors.name">
       <UiFormInput v-model="name" v-bind="nameProps" />
     </UiFormField>
 
     <UiFormField
-      id="description"
       label="Description"
-      :has-error="!!errors.description"
+      name="description"
       :error-message="errors.description"
     >
       <UiFormInput
@@ -114,17 +84,15 @@ const onSubmit = handleSubmit(
     </UiFormField>
 
     <UiFormField
-      id="picture"
       label="Picture URL"
-      :has-error="!!errors.picture"
+      name="picture"
       :error-message="errors.picture"
     >
       <UiFormInput v-model="picture" v-bind="pictureProps" />
     </UiFormField>
 
     <UiFormField
-      id="price"
-      :has-error="!!errors.price"
+      name="price"
       label="Price for single pearson"
       :error-message="errors.price"
     >
@@ -132,18 +100,16 @@ const onSubmit = handleSubmit(
     </UiFormField>
 
     <UiFormField
-      id="departure_date"
       label="Departure date"
-      :has-error="!!errors.departure_date"
+      name="departure_date"
       :error-message="errors.departure_date"
     >
       <UiFormInput v-model="startsAt" type="date" v-bind="startsAtProps" />
     </UiFormField>
 
     <UiFormField
-      id="return_date"
       label="Return date"
-      :has-error="!!errors.return_date"
+      name="return_date"
       :error-message="errors.return_date"
     >
       <UiFormInput v-model="endsAt" type="date" v-bind="endsAtProps" />

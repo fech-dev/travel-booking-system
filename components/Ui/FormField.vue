@@ -1,31 +1,29 @@
 <script lang="ts" setup>
 interface Props {
   label?: string;
-  hasError?: boolean;
   errorMessage?: string;
 }
 
 withDefaults(defineProps<Props>(), {
   label: undefined,
-  hasError: false,
   errorMessage: undefined,
 });
 
-const attrs = useAttrs() as { id?: string };
+const attrs = useAttrs() as { name?: string };
 
 const { ui } = useAppConfig();
 
-provide<string | undefined>("id", attrs.id);
+provide<string | undefined>("name", attrs.name);
 </script>
 
 <template>
   <div class="flex flex-col">
-    <label :for="attrs.id" :class="ui.formField.label">
+    <label :for="attrs.name" :class="ui.formField.label">
       {{ label }}
     </label>
     <slot />
 
-    <div v-show="hasError && errorMessage" :class="ui.formField.errorMessage">
+    <div v-show="errorMessage" :class="ui.formField.errorMessage">
       {{ errorMessage }}
     </div>
   </div>

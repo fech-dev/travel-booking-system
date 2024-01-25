@@ -25,15 +25,15 @@ const classes = computed(() => [
 
 const attrs = useAttrs();
 
-const id = inject<string>("id", attrs.id as string);
+const name = inject<string>("name", attrs.name as string);
 </script>
 
 <template>
   <textarea
     v-if="props.type === 'textarea'"
-    :id="id"
     v-model="model"
+    :name="name"
     :class="classes"
   />
-  <input v-else :id="id" v-model="model" :type="type" :class="classes" />
+  <input v-else v-model="model" :name="name" :type="type" :class="classes" />
 </template>
